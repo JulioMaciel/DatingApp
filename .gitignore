@@ -1,0 +1,6 @@
+doc.txt
+.vscode
+bin
+obj
+*.db
+.vs

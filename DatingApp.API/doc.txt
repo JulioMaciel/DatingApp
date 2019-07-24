@@ -48,4 +48,4 @@ then, copy the remote command informed, such as git remote add origin https://gi
 
 angular snippes -> a-ng + tab
 
-
+error 500 is always from API
