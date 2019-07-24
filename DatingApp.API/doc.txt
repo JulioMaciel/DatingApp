@@ -46,6 +46,6 @@ create manually on Git
 then, copy the remote command informed, such as git remote add origin https://github.com/JulioMaciel/DatingApp.git
 
 
-
+angular snippes -> a-ng + tab
 
 
