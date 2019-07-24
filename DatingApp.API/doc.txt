@@ -39,4 +39,13 @@ ctrl shift p -> icon theme (activate)
 
 alt O; alt U
 
+npm install bootstrap font-awesome
+
+git init
+create manually on Git
+then, copy the remote command informed, such as git remote add origin https://github.com/JulioMaciel/DatingApp.git
+
+
+
+
 
