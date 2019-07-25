@@ -20,6 +20,8 @@ TSLint
 
 dotnet new webapi -o DatingApp.API -n DatingApp.API
 dotnet run
+
+cd DatingApp.API
 dotnet watch run
 
 services.AddDbContext<DataContext>(x => x.UseSqlite(""));
@@ -31,6 +33,7 @@ dotnet ef database update
 npm install -g @angular/cli@6.0.8
 ng new DatingApp-SPA
 
+cd DatingApp-SPA
 ng serve
 
 app -> generate component
@@ -49,3 +52,14 @@ then, copy the remote command informed, such as git remote add origin https://gi
 angular snippes -> a-ng + tab
 
 error 500 is always from API
+
+NGX Bootstrap is a bootstrap that doesn't use JS
+npm install ngx-bootstrap@3.0.1 --save
+
+cd DatingApp-SPA
+npm install alertifyjs --save
+
+npm install @auth0/angular-jwt@2.0.0
+
+bootswatch adiciona diferente templates colors in bootstrap templates
+npm install bootswatch@4.1.1
