@@ -48,7 +48,6 @@ git init
 create manually on Git
 then, copy the remote command informed, such as git remote add origin https://github.com/JulioMaciel/DatingApp.git
 
-
 angular snippes -> a-ng + tab
 
 error 500 is always from API
@@ -63,3 +62,11 @@ npm install @auth0/angular-jwt@2.0.0
 
 bootswatch adiciona diferente templates colors in bootstrap templates
 npm install bootswatch@4.1.1
+
+routes handles what should do when user types something on url
+
+generate guard by angular/cli:
+cd src/app/_guards/
+ng g guard auth --spec=false
+
+
