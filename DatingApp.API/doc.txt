@@ -83,15 +83,16 @@ dotnet ef database update
 
 https://www.json-generator.com/
 
-Automapper helps connect models of same object
+AutoMapper helps connect models of same object
 Ctrl + P
 ">" + nugget
 then look for:
 AutoMapper.Extensions.Microsoft.DependencyInjection
 @4.0.1
 
+when errors, try to find the problem on Network tab
 
-
+npm install ngx-gallery@5.3.2 --save
 
 
 
