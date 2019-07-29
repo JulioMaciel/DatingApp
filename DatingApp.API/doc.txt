@@ -111,4 +111,7 @@ remove migrations folder
 "init new" fixing migration
 update db
 
+time ago library:
+npm install time-ago-pipe --save
+
 
