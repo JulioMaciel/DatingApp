@@ -84,16 +84,31 @@ dotnet ef database update
 https://www.json-generator.com/
 
 AutoMapper helps connect models of same object
-Ctrl + P
+Ctrl + shift + P
 ">" + nugget
 then look for:
 AutoMapper.Extensions.Microsoft.DependencyInjection
 @4.0.1
 
 when errors, try to find the problem on Network tab
+also, it could be found mixed in middle of wall of text on the terminal
 
 npm install ngx-gallery@5.3.2 --save
 
+nugget: CloudinaryDotNet@1.3.1
+Restore
 
+to debug (under extations icon):
+.Net Core attach (non web)
+Run
+Select dotnet #### DatingApp.API.dll (deve ser o ÚLTIMO da lista)
+
+npm install ng2-file-upload@1.3.0 --save
+
+if DB fucked up:
+remove .db file
+remove migrations folder
+"init new" fixing migration
+update db
 
 
