@@ -62,14 +62,12 @@ namespace DatingApp.API.Data
             {
                 var userLikers = await GetUserLikes(userParams.UserId, userParams.Likers);
                 users = users.Where(u => userLikers.Contains(u.Id));
-                Console.WriteLine("---------------> passou aqui: userParams.Likers; retornou: " + userLikers.Count() + "/" + users.Count());
             }
 
             if (userParams.Likees)
             {
                 var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
                 users = users.Where(u => userLikees.Contains(u.Id));
-                Console.WriteLine("---------------> passou aqui: userParams.Likees; retornou: " + userLikees.Count() + "/" + users.Count());
             }
 
             if (userParams.MinAge != 18 || userParams.MaxAge != 99) 

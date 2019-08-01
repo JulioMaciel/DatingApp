@@ -114,4 +114,60 @@ update db
 time ago library:
 npm install time-ago-pipe --save
 
+Publishing:
+angular.json -> "outputPath": "../DatingApp.API/wwwroot",
+terminal SPA: ng build
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+para fazer o F5 funcionar, precisa passar os routes válidos pro API
+FallBack : Controller
+
+at environment.prod.ts, add:
+apiUrl: 'http://localhost:5000/api/'
+
+terminal SPA: ng build --prod
+
+then terminal API: dotnet build
+and test on: http://localhost:5000/
+
+if something was wrong, can use the command which will not reduce files
+terminal SPA: ng build --prod-optiomizer=false
+
+SQLite -> MySQL
+https://dev.mysql.com/downloads/windows/installer/8.0.html
+Windows (x86, 32-bit), MSI Installer	8.0.17	18.5M	
+Type: Server only
+Group Replication: Stand alone [default]
+Type and Networking: [default]
+Authentication Method: Strong [default]
+passwords, Add User: appuser + passwords [default*]
+Windows Service: [default] (maybe uncheck to start at win startup)
+Execute
+Then,
+copy path: C:\Program Files\MySQL\MySQL Server 8.0\bin
+This PC -> Properties -> Advanced System Settings -> Advanced tab -> Environment Variables... ->
+Select Path -> Edit... -> New -> paste from clipboard -> ok, ok, ok!
+cmd:
+mysql -u appuser -p 
+insert password
+show databases; -> to check if it's everything ok
+
+google: ef/core/providers/ -> lista de DBs compatibilidade
+MySQL: Pomelo.EntityFrameworkCore.MySql
+add via nugget ctrl shipt p Pomelo.EntityFrameworkCore.MySql
+dotnet restore
+
+DevelopmentMode of:
+Startup.cs, appsettings.json
+
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-2.2#set-the-environment
+terminal:
+$Env:ASPNETCORE_ENVIRONMENT = "Production"
+setx ASPNETCORE_ENVIRONMENT Production
+remove migration folder
+dotnet ef migrations add mysqlInitial
+dotnet ef database update
+launchSettings.json -> ASPNETCORE_ENVIRONMENT": "Production"
+dotnet run
 
