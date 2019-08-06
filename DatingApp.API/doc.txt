@@ -164,7 +164,6 @@ Startup.cs, appsettings.json
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/environments?view=aspnetcore-2.2#set-the-environment
 terminal:
 $Env:ASPNETCORE_ENVIRONMENT = "Production"
-setx ASPNETCORE_ENVIRONMENT Production
 remove migration folder
 dotnet ef migrations add mysqlInitial
 dotnet ef database update

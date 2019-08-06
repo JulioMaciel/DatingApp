@@ -10,41 +10,53 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root' // in this case, is the app.module
 })
 export class AuthService {
-baseUrl = environment.apiUrl + 'auth/';
-jwtHelper = new JwtHelperService();
-decodedToken: any;
-currentUser: User;
-photoUrl = new BehaviorSubject<string>('../../assets/user.png');
-currentPhotoUrl = this.photoUrl.asObservable();
+  baseUrl = environment.apiUrl + 'auth/';
+  jwtHelper = new JwtHelperService();
+  decodedToken: any;
+  currentUser: User;
+  photoUrl = new BehaviorSubject<string>('../../assets/user.png');
+  currentPhotoUrl = this.photoUrl.asObservable();
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-changeMemberPhoto(photoUrl: string) {
-  this.photoUrl.next(photoUrl);
-}
+  changeMemberPhoto(photoUrl: string) {
+    this.photoUrl.next(photoUrl);
+  }
 
-login(model: any) {
-  return this.http.post(this.baseUrl + 'login', model).pipe(
-    map((response: any) => {
-      const user = response;
-      if (user) {
-        localStorage.setItem('token', user.token);
-        localStorage.setItem('user', JSON.stringify(user.user));
-        this.decodedToken = this.jwtHelper.decodeToken(user.token);
-        this.currentUser = user.user;
-        this.changeMemberPhoto(this.currentUser.photoUrl);
+  login(model: any) {
+    return this.http.post(this.baseUrl + 'login', model).pipe(
+      map((response: any) => {
+        const user = response;
+        if (user) {
+          localStorage.setItem('token', user.token);
+          localStorage.setItem('user', JSON.stringify(user.user));
+          this.decodedToken = this.jwtHelper.decodeToken(user.token);
+          this.currentUser = user.user;
+          this.changeMemberPhoto(this.currentUser.photoUrl);
+        }
+      })
+    );
+  }
+
+  register(user: User) {
+    return this.http.post(this.baseUrl + 'register', user);
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+
+  roleMatch(allowedRoles): boolean {
+    let isMatch = false;
+    const userRoles = this.decodedToken.role as Array<string>;
+    allowedRoles.forEach(element => {
+      if (userRoles.includes(element)) {
+        isMatch = true;
+        return;
       }
-    })
-  );
-}
-
-register(user: User) {
-  return this.http.post(this.baseUrl + 'register', user);
-}
-
-loggedIn() {
-  const token = localStorage.getItem('token');
-  return !this.jwtHelper.isTokenExpired(token);
-}
+    });
+    return isMatch;
+  }
 
 }
